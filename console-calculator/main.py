@@ -18,15 +18,18 @@ b = read_numbers("Enter B: ")
 
 print("Choice operations: [ + ][ - ][ * ][ / ]")
 
-choice = (input("Enter your choice: "))
-if "+" in choice:
-    print("Result: ", a+b)
-elif "-" in choice:
-    print("Result: ", a-b)
-elif "*" in choice:
-    print("Result: ", a*b)
-elif "/" in choice:
-    print("Result: ", a/b)
-else:
-    print("Unknow operation")
-
+choice = input("Enter your choice: ").strip()
+match choice:
+    case "+":
+        print("Result: ", a+b)
+    case "-":
+        print("Result: ", a-b)
+    case "*":
+        print("Result: ", a*b)
+    case "/":
+        if b == 0:
+            print("Division by zero is undefined")
+        else:
+            print("Result: ", a / b)
+    case _:
+        print("Invalid choice!")
